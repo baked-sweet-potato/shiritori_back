@@ -13,9 +13,10 @@ return new class () extends Migration {
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->ulid('ulid')->primary();
+            $table->id();
             $table->string('content', 50);
-            $table->timestamps();
+            $table->string('ip', 50);
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 
